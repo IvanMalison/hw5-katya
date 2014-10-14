@@ -30,30 +30,21 @@ double average  (int nums[]);
 
 int main()
 {
-        int years[SPACE];
-        int pos = 0;
-        int y;
-        double avg;
+  int years[SPACE];
+  int last_read;
 
-        do {
-                cin >> y;
-                years[pos] = y;
-		pos++;
-        } while ((years[pos] != SENTINEL) and (pos < SPACE));
-	
-	cout << pos << endl;
+  for (int pos = 0; last_read != SENTINEL; pos++) {
+    if (pos >= SPACE) {
+      cout << "too much input" << endl;
+      return 1;
+    }
+    cin >> last_read;
+    years[pos] = last_read;
+  }
 
-	if ((pos = SPACE) and (years[SPACE-1] != -1)) {
-		cout << "too much input" << endl;
-		return 1;
-	}
-	else {
-        print_seq(years);
-        avg = average(years);
-        cout << "avg = " << avg << endl;
-
-        return 0;
-	}
+  print_seq(years);
+  cout << "avg = " << average(years) << endl;
+  return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -67,28 +58,28 @@ int main()
 // terminated by a sentinel
 void print_seq(int nums[SPACE])
 {
-        int pos = 0;
-        while (nums[pos] != SENTINEL) {
-                cout << pos << " " << 
-	        nums[pos] << endl;
-                pos++;
-        }
+  int pos = 0;
+  while (nums[pos] != SENTINEL) {
+    cout << pos << " " << 
+      nums[pos] << endl;
+    pos++;
+  }
 }
 
 // returns the average (mean) value
 // of the integers in the sequence
 double average(int nums[SPACE])
 {
-	int pos;
-	double nums_sum;
-	double nums_avg;
+  int pos;
+  double nums_sum = 0;
+  double nums_avg = 0;
 
-	for (pos = 0; nums[pos] != SENTINEL; pos++) {
-		nums_sum += nums[pos];
-	}
+  for (pos = 0; nums[pos] != SENTINEL; pos++) {
+    nums_sum += nums[pos];
+  }
 
-	nums_avg = (nums_sum / pos);      
+  nums_avg = (nums_sum / pos);      
 
-        return nums_avg;
+  return nums_avg;
 
 }
