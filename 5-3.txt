@@ -1,0 +1,14 @@
+ 
+ 5-3.txt
+
+ iteration table
+ by: Katya Malison
+ date: 10/13/14
+ ----------------------------------------
+ variables: pos x[pos] total_sum 
+            0   8      0         
+            1   10     8         
+            2   3      18        
+            3   2      21        
+            4   9      23        
+            5   0      32        
