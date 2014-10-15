@@ -20,22 +20,19 @@ double find_target(int years[], string names[], string target);
 
 int main()
 {
-	int years[SPACE];
-	string names [SPACE];
+	int years[SPACE], read_year;
+	string names [SPACE], read_name;
 	string target_name;
-       	int pos;
 	double avg_year;
 
-	for (pos = 0; pos < SPACE; pos++) {
-		cin >> years[pos] >> names[pos];
-		if (years[pos] == SENTINEL) {
-			break;
+	for (int pos = 0; read_year != SENTINEL; pos++) {
+		if (pos >= SPACE) {
+			cout << "too much data" << endl;
+			return 1;
 		}
-	}
-
-	if (pos >= SPACE) {
-        	cout << "too much input" << endl;
-                return 1;
+		cin >> read_year >> read_name;
+		years[pos] = read_year;
+		names[pos] = read_name;
 	}
 
 	cout << "Enter a name: ";

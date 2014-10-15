@@ -25,28 +25,21 @@ int over_num(int x[], double y);
 int main()
 {
 	int years[SPACE];
-	int pos;
-	double average;
-	int total_over;
+	int last_read = -1;	// initialized to non-
+	double average;		// sentinel
 
-	for (pos = 0; pos < SPACE; pos++) {
-		cin >> years[pos];
-		if (years[pos] == SENTINEL) { 
-			break;
+	for (int pos = 0; last_read != SENTINEL; pos++) {
+		if (pos >= SPACE) {
+			cout << "too much input" << endl;
+			return 1;
 		}
-	}
+       		cin >> last_read;
+		years[pos] = last_read;
+       	}
 
-	cout << pos << endl;
-	
-	if (pos >= SPACE) {
-		cout << "too much input" << endl;
-		return 1;
-	}
-	
 	average = avg_num(years);
-       	total_over = over_num(years, average);
 
-	cout << total_over << endl;
+	cout << over_num(years, average) << endl;
 
 	return 0;
 }

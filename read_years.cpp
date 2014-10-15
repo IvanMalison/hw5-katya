@@ -31,8 +31,7 @@ double average  (int nums[]);
 int main()
 {
   int years[SPACE];
-  int last_read;
-
+  int last_read = 0;
   for (int pos = 0; last_read != SENTINEL; pos++) {
     if (pos >= SPACE) {
       cout << "too much input" << endl;
@@ -41,7 +40,6 @@ int main()
     cin >> last_read;
     years[pos] = last_read;
   }
-
   print_seq(years);
   cout << "avg = " << average(years) << endl;
   return 0;
